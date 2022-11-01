@@ -1,18 +1,17 @@
 <?php
 /*
-Plugin Name:  WordPress Plugin
-Description:  A small plugin that use WordPress Base Plugin package.
+Plugin Name:  Evini Reseñas
+Description:  Integra la funcionalidad de reseñas para los productos
 Version:      0.0.1
 Author: Marcio Fuentes
 Author URI: https://adue.digital
  */
 
-use Adue\WordPressPlugin\Plugin;
-use Noodlehaus\Config;
+use Adue\EviniResenas\Plugin;
 
 require 'vendor/autoload.php';
 
-class WordPressPlugin
+class EviniResenas
 {
 
     public $plugin;
@@ -36,4 +35,4 @@ class WordPressPlugin
 
 }
 
-class_exists(WordPressPlugin::class) && WordPressPlugin::instance();
+class_exists(EviniResenas::class) && EviniResenas::instance();

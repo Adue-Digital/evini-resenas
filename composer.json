@@ -1,11 +1,11 @@
 {
-  "name": "adue/wordpress-plugin",
-  "description": "A small plugin that use WordPress Base Plugin package.",
+  "name": "adue/evini-resenas",
+  "description": "Crea la funcionalidad de reseñas para vinos.",
   "type": "library",
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "Adue\\WordPressPlugin\\": "src/"
+      "Adue\\EviniResenas\\": "src/"
     }
   },
   "authors": [

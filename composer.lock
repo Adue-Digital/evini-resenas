@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce7b49a68dcb9376586eb365921535da",
+    "content-hash": "454fad3dd95592852de9785e3521dbff",
     "packages": [
         {
             "name": "adue/wordpress-base-plugin",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Adue-Digital/wordpress-base-plugin.git",
-                "reference": "a7e9872f9114350ef380bfbd4eecae7a2e23ebd3"
+                "reference": "af11e391bbaae9bb4eb3469c4909830fa8c68db4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Adue-Digital/wordpress-base-plugin/zipball/a7e9872f9114350ef380bfbd4eecae7a2e23ebd3",
-                "reference": "a7e9872f9114350ef380bfbd4eecae7a2e23ebd3",
+                "url": "https://api.github.com/repos/Adue-Digital/wordpress-base-plugin/zipball/af11e391bbaae9bb4eb3469c4909830fa8c68db4",
+                "reference": "af11e391bbaae9bb4eb3469c4909830fa8c68db4",
                 "shasum": ""
             },
             "require": {
@@ -44,7 +44,7 @@
                 "issues": "https://github.com/Adue-Digital/wordpress-base-plugin/issues",
                 "source": "https://github.com/Adue-Digital/wordpress-base-plugin/tree/main"
             },
-            "time": "2022-06-26T21:53:34+00:00"
+            "time": "2022-10-23T23:04:31+00:00"
         },
         {
             "name": "hassankhan/config",
@@ -52,12 +52,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hassankhan/config.git",
-                "reference": "1e7ce499bc37a61732257158cb87436a467ebc5c"
+                "reference": "c992551806ec65ee915a92bc5d5ed02b86b6fa12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hassankhan/config/zipball/1e7ce499bc37a61732257158cb87436a467ebc5c",
-                "reference": "1e7ce499bc37a61732257158cb87436a467ebc5c",
+                "url": "https://api.github.com/repos/hassankhan/config/zipball/c992551806ec65ee915a92bc5d5ed02b86b6fa12",
+                "reference": "c992551806ec65ee915a92bc5d5ed02b86b6fa12",
                 "shasum": ""
             },
             "require": {
@@ -107,7 +107,7 @@
                 "issues": "https://github.com/hassankhan/config/issues",
                 "source": "https://github.com/hassankhan/config/tree/develop"
             },
-            "time": "2022-04-24T12:23:48+00:00"
+            "time": "2022-08-24T17:34:16+00:00"
         }
     ],
     "packages-dev": [],

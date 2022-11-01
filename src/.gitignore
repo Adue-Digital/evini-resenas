@@ -1,3 +1,7 @@
 *
-!.gitignore
+!Comments
+!Comments/*
+!Frontend
+!Frontend/*
 !Plugin.php
+!.gitignore

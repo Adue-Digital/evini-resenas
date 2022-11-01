@@ -1,12 +1,12 @@
 <?php
 
-namespace Adue\WordPressPlugin;
+namespace Adue\EviniResenas;
 
+use Adue\EviniResenas\Comments\AcidAttribute;
+use Adue\EviniResenas\Frontend\Assets;
+use Adue\EviniResenas\Frontend\Attributes;
+use Adue\EviniResenas\Frontend\OrderReviewShortcode;
 use Adue\WordPressBasePlugin\BasePlugin;
-use Adue\WordPressPlugin\Admin\CustomOption;
-use Adue\WordPressPlugin\Admin\CustomSubmenuPage;
-use Adue\WordPressPlugin\PostTypes\BookPostType;
-use Adue\WordPressPlugin\Admin\CustomMenuPage;
 
 class Plugin extends BasePlugin
 {
@@ -15,7 +15,22 @@ class Plugin extends BasePlugin
 
     public function init()
     {
-        //Make some awesome
+        Assets::registerScripts();
+
+        Attributes::registerAttributes();
+
+        add_filter( 'comment_post_redirect', [$this, 'commentPostRedirect'], 10,2 );
+
+        $shortcode = new OrderReviewShortcode();
+        $shortcode->add();
+    }
+
+    public function commentPostRedirect($location, $commentdata)
+    {
+        if(strpos('revision-de-orden', $_SERVER['HTTP_REFERER']) !== false) {
+            return site_url().'/revision-de-orden';
+        }
+        return $location;
     }
 
 }

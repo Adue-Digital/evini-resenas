@@ -1,2 +1,6 @@
 *
+!comment_meta
+!comment_meta/*
+!order_review
+!order_review/*
 !.gitignore

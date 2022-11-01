@@ -1,0 +1,29 @@
+.resena-slider,
+.resena-value {
+    display: inline-block;
+}
+.resena-slider {
+    width: 95%!important;
+}
+.resena-value {
+    width: 4%!important;
+}
+.range-container {
+    display: flex;
+}
+.progress-round {
+    border-radius: 16px;
+}
+.progress-container {
+    padding: 0.01em 16px;
+    min-height: 20px;
+}
+.progress-light-grey {
+    background-color: #CDCDCD!important;
+}
+.progress-color {
+    background-color: #F21259!important;
+}
+.wine-attribute-progress {
+    width: 100%;
+}
