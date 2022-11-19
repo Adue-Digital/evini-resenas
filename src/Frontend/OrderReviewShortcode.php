@@ -20,14 +20,20 @@ class OrderReviewShortcode extends BaseShortcode
             $this->view()->render('public/order_review/no_order');
         } else {
             $this->view()->set('products', $order->get_items());
-            $this->view()->render('public/order_review/order_review');
+            $this->view()->set('metas', [
+                'sweet' => 'Dulce',
+                'woody' => 'Amaderado',
+                'fruity' => 'Frutado',
+                'acid' => 'Ácido',
+            ]);
+            $this->view()->render('public/order_review/order_review_stepper');
         }
     }
 
     private function canReviewOrder($order)
     {
-        if(!is_user_logged_in())
-            return false;
+        if(!is_user_logged_in() || !$order)
+            return false; //TODO CHANGE TO FALSE
 
         return $order->get_user_id() == get_current_user_id();
     }

@@ -5,6 +5,7 @@ namespace Adue\EviniResenas;
 use Adue\EviniResenas\Comments\AcidAttribute;
 use Adue\EviniResenas\Frontend\Assets;
 use Adue\EviniResenas\Frontend\Attributes;
+use Adue\EviniResenas\Frontend\OrderReviewActions;
 use Adue\EviniResenas\Frontend\OrderReviewShortcode;
 use Adue\WordPressBasePlugin\BasePlugin;
 
@@ -23,6 +24,8 @@ class Plugin extends BasePlugin
 
         $shortcode = new OrderReviewShortcode();
         $shortcode->add();
+
+        OrderReviewActions::register();
     }
 
     public function commentPostRedirect($location, $commentdata)

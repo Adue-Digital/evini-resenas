@@ -3,6 +3,7 @@
 namespace Adue\EviniResenas\Frontend;
 
 use Adue\WordPressBasePlugin\Base\Config;
+use Adue\WordPressBasePlugin\Modules\Views\Assets as AssetsManager;
 use Adue\WordPressBasePlugin\Helpers\Traits\UseConfig;
 use Adue\WordPressBasePlugin\Helpers\Traits\UseLoader;
 
@@ -10,6 +11,8 @@ class Assets
 {
 
     use UseLoader, UseConfig;
+
+    //public $assetsManager
 
     public static function registerScripts()
     {
@@ -19,11 +22,20 @@ class Assets
 
     public function enqueueScripts()
     {
-        wp_enqueue_style( 'style', $this->config()->get('base_plugin_dir').'/../resources/assets/css/style.css' );
-        wp_enqueue_script( 'scripts', $this->config()->get('base_plugin_dir').'/../resources/assets/js/scripts.js', array('jquery'), '1.0.0', true );
+        $assetsManager = new AssetsManager();
+        $assetsManager->enqueueScripts('scripts', $this->config()->get('base_plugin_dir').'/../resources/assets/js/scripts.js', array('jquery'),  date('YmdHis'), true );
+        $assetsManager->enqueueScripts('steps', $this->config()->get('base_plugin_dir').'/../resources/assets/js/jquery.steps.min.js', array('jquery'), date('YmdHis'), true );
+        $assetsManager->enqueueScripts('star-rating-svg', $this->config()->get('base_plugin_dir').'/../resources/assets/js/jquery.star-rating-svg.min.js', array('jquery'), date('YmdHis'), true );
+        $assetsManager->enqueueStyles('style', $this->config()->get('base_plugin_dir').'/../resources/assets/css/style.css' );
+
+        $assetsManager->localizeScript('scripts', 'ajax_var', [
+            'url'    => admin_url( 'admin-ajax.php' ),
+            'nonce'  => wp_create_nonce( 'my-ajax-nonce' ),
+            'action' => 'save-reviews'
+        ]);
 
         if(!is_product()) {
-            wp_enqueue_script( 'wc-single-product-js', 'http://evini.test/wp-content/plugins/woocommerce/assets/js/frontend/single-product.min.js', array('jquery'), date('YmdHis'));
+            $assetsManager->enqueueScripts('wc-single-product-js', 'http://evini.test/wp-content/plugins/woocommerce/assets/js/frontend/single-product.min.js', array('jquery'), date('YmdHis'));
         }
     }
 

@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Adue-Digital/wordpress-base-plugin.git",
-                "reference": "af11e391bbaae9bb4eb3469c4909830fa8c68db4"
+                "reference": "dc3c9316b84ad0790e17e83871bb0f3c4ca2b96c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Adue-Digital/wordpress-base-plugin/zipball/af11e391bbaae9bb4eb3469c4909830fa8c68db4",
-                "reference": "af11e391bbaae9bb4eb3469c4909830fa8c68db4",
+                "url": "https://api.github.com/repos/Adue-Digital/wordpress-base-plugin/zipball/dc3c9316b84ad0790e17e83871bb0f3c4ca2b96c",
+                "reference": "dc3c9316b84ad0790e17e83871bb0f3c4ca2b96c",
                 "shasum": ""
             },
             "require": {
@@ -44,7 +44,7 @@
                 "issues": "https://github.com/Adue-Digital/wordpress-base-plugin/issues",
                 "source": "https://github.com/Adue-Digital/wordpress-base-plugin/tree/main"
             },
-            "time": "2022-10-23T23:04:31+00:00"
+            "time": "2022-11-19T20:16:29+00:00"
         },
         {
             "name": "hassankhan/config",
@@ -118,5 +118,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

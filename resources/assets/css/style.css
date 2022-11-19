@@ -1,15 +1,47 @@
+@import "rating.css";
+@import "steps.css";
+
+.radio-toolbar input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+
+.radio-toolbar label {
+    display: inline-block;
+    background-color: #fff;
+    padding: 5px 20px;
+    font-family: sans-serif, Arial;
+    font-size: 16px;
+    border: 0.5px solid #0000000A;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.radio-toolbar label:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.radio-toolbar input[type="radio"]:checked + label {
+    background-color: #000;
+    color: #fff;
+}
 .resena-slider,
 .resena-value {
     display: inline-block;
 }
 .resena-slider {
     width: 95%!important;
+    height: 8px;
 }
 .resena-value {
     width: 4%!important;
+    padding-left: 2px;
 }
 .range-container {
     display: flex;
+    align-items: center;
 }
 .progress-round {
     border-radius: 16px;
@@ -26,4 +58,43 @@
 }
 .wine-attribute-progress {
     width: 100%;
+}
+#respond .logged-in-as {
+    display: none;
+}
+input[type=range] {
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    width: 100%; /* Specific width is required for Firefox. */
+    background: #ccc; /* Otherwise white in Chrome */
+}
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid #F21259;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    background: #F21259;
+    cursor: pointer;
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+    border: 1px solid #F21259;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    background: #F21259;
+    cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+    border: 1px solid #F21259;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    background: #F21259;
+    cursor: pointer;
 }
