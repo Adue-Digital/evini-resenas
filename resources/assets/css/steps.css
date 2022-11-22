@@ -18,9 +18,13 @@
 }
 #order-review-stepper .steps ul {
     list-style: none;
+    padding-left: 0!important;
 }
 #order-review-stepper .steps li {
     display: none;
+}
+#order-review-stepper .steps li a{
+    color: #000;
 }
 #order-review-stepper .steps li.current {
     display: block;
@@ -28,6 +32,7 @@
 #order-review-stepper .actions ul {
     list-style: none;
     display: flex;
+    padding-left: 0!important;
 }
 #order-review-stepper .actions li {
     width: 100%;
@@ -44,4 +49,9 @@
 }
 #order-review-stepper .actions .disabled {
     display: none;
+}
+
+#order-review-stepper .comment {
+    width: 100%;
+    border-radius: 3px;
 }

@@ -26,6 +26,19 @@ class OrderReviewShortcode extends BaseShortcode
                 'fruity' => 'Frutado',
                 'acid' => 'Ácido',
             ]);
+
+            $hasComment = get_comments( array (
+                'user_id' => get_current_user_id(),
+                'meta_query' => [
+                    [
+                        'key' => 'order_id',
+                        'value' => $_GET['order_id']
+                    ]
+                ]
+            ));
+
+            $this->view()->set('hasComment', $hasComment);
+
             $this->view()->render('public/order_review/order_review_stepper');
         }
     }
