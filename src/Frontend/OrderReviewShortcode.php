@@ -19,7 +19,12 @@ class OrderReviewShortcode extends BaseShortcode
         if(!$this->canReviewOrder($order)) {
             $this->view()->render('public/order_review/no_order');
         } else {
-            $this->view()->set('products', $order->get_items());
+            $products = [];
+            foreach ($order->get_items() as $item) {
+                if(!isset($products[$item->get_product()->get_id()]))
+                    $products[$item->get_product()->get_id()] = $item;
+            }
+            $this->view()->set('products', $products);
             $this->view()->set('metas', [
                 'sweet' => 'Dulce',
                 'woody' => 'Amaderado',

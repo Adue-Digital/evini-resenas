@@ -1,21 +1,44 @@
 function onChangeSlider(e) {
-    e.nextElementSibling.value = e.value + "%";
+    e.nextElementSibling.value = e.value + " %";
 
     let percentage =  e.value;
-    e.style.background = 'linear-gradient(to right, #F21259, #F21259 ' + percentage + '%, #cccccc ' + percentage + '%, #cccccc 100%)';
+    e.style.background = 'linear-gradient(to right, #db5360, #db5360 ' + percentage + '%, #707070 ' + percentage + '%, #707070 100%)';
 }
 
 function wineTastedChange(e) {
     var wineTasted = document.querySelector(".radio-toolbar input[type=\"radio\"]:checked");
     if(wineTasted.value == 'no') {
-        jQuery(".wine-attribute-container").hide();
+        jQuery(".wine-attribute-container").slideUp();
     } else {
-        jQuery(".wine-attribute-container").show();
+        jQuery(".wine-attribute-container").slideDown();
     }
 }
 
 (function($) {
-    $(document).ready(function(){
+    $.fn.isInViewport = function() {
+        var elementTop = $(this).offset().top;
+        var elementBottom = elementTop + $(this).outerHeight();
+
+        var viewportTop = $(window).scrollTop();
+        var viewportBottom = viewportTop + $(window).height();
+
+        return elementBottom > viewportTop && elementTop < viewportBottom;
+    };
+
+    $.fn.fillRange = function() {
+        var width = $(this).data('witdh', 0);
+
+        if(!$(this).css('width') >= width) {
+            return;
+        }
+
+        $(this).animate({
+            width: width
+        }, 1000);
+
+    };
+
+    $(window).load(function(){
 
         var stepperContiner = $("#order-review-stepper");
 
@@ -31,6 +54,7 @@ function wineTastedChange(e) {
                     current: '',
                     previous: 'Anterior',
                     next: 'Siguiente',
+                    finish: 'Enviar',
                 },
                 onStepChanging: function (event, currentIndex, newIndex) {
                     if(currentIndex > newIndex) {
@@ -69,7 +93,11 @@ function wineTastedChange(e) {
                         url: $("#order-review-form").attr('action'),
                         data: data,
                         success: function(result){
-                            if(result.success) {
+                            var resJson = JSON.parse(result);
+                            if(resJson.success) {
+                                $("#order-review-thanks").show();
+                                $("#order-review-container").hide();
+                                $("#loader").hide();
                                 return true;
                             } else {
                                 $("#loader").hide();
@@ -87,9 +115,9 @@ function wineTastedChange(e) {
             var ratingConfig = {
                 useFullStars: true,
                 strokeWidth: 30,
-                strokeColor: 'gold',
-                hoverColor: 'gold',
-                ratedColor: 'gold',
+                strokeColor: '#e8bf00',
+                hoverColor: '#e8bf00',
+                ratedColor: '#e8bf00',
                 emptyColor: 'transparent',
                 disableAfterRate: false,
                 callback: function(currentRating, $el) {
@@ -110,5 +138,54 @@ function wineTastedChange(e) {
 
         }
 
+        var progressBars = $("#progress-bars");
+        if(progressBars.length) {
+            if (progressBars.isInViewport()) {
+                $(".progress-container").each(function(index){
+                    var maxWidth = $(this).data('width');
+
+                    $(this).animate({
+                        width: maxWidth+'%',
+                    }, 1000, function() {
+                        // Animation complete.
+                    });
+                });
+            }
+            $(window).on('resize scroll', function() {
+                if (progressBars.isInViewport()) {
+                    $(".progress-container").each(function(index){
+                        var maxWidth = $(this).data('width');
+
+                        $(this).animate({
+                            width: maxWidth+'%',
+                        }, 1000, function() {
+                            // Animation complete.
+                        });
+                    });
+                }
+            });
+        }
     });
+/*
+    $(".progress-container").each(function(index){
+        var maxWidth = $(this).data('width');
+        var id = setInterval(frame, 100);
+        var width = 1;
+        function frame() {
+            if(width >= maxWidth) {
+                clearInterval(id);
+                width = 1;
+            } else {
+                width++;
+                $(this).style('width', width);
+            }
+        }
+    });
+
+    $("#progress-bars").ready(function(){
+
+
+    })*/
+
+
 })(jQuery);

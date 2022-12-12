@@ -1,7 +1,22 @@
+.rating-container {
+    max-width: 250px;
+    margin: 0 auto;
+}
+.rating-container p {
+    float: left;
+    display: block;
+    width: 100%;
+}
+.clear {
+    clear: both;
+}
 .jq-stars {
     display: inline-block;
 }
-
+.jq-star {
+    margin-left: 3.5px;
+    margin-right: 3.5px;
+}
 .jq-rating-label {
     font-size: 22px;
     display: inline-block;
@@ -35,4 +50,9 @@
 .jq-shadow {
     -webkit-filter: drop-shadow( -2px -2px 2px #888 );
     filter: drop-shadow( -2px -2px 2px #888 );
+}
+
+.remove-rating {
+    display: block;
+    margin-bottom: 15px;
 }

@@ -27,17 +27,25 @@
     background-color: #000;
     color: #fff;
 }
+.range-label {
+    text-align: left;
+    color: #484848;
+    font-weight: 600;
+    width: 100%;
+}
 .resena-slider,
 .resena-value {
     display: inline-block;
 }
 .resena-slider {
-    width: 95%!important;
+    width: 90%!important;
     height: 8px;
 }
 .resena-value {
-    width: 4%!important;
-    padding-left: 2px;
+    width: 9%!important;
+    text-align: right;
+    color: #484848;
+    font-weight: 600;
 }
 .range-container {
     display: flex;
@@ -54,7 +62,7 @@
     background-color: #CDCDCD!important;
 }
 .progress-color {
-    background-color: #F21259!important;
+    background-color: #db5360!important;
 }
 .wine-attribute-progress {
     width: 100%;
@@ -65,36 +73,37 @@
 input[type=range] {
     -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
     width: 100%; /* Specific width is required for Firefox. */
-    background: #ccc; /* Otherwise white in Chrome */
+    background: #707070; /* Otherwise white in Chrome */
+    border-radius: 10px;
 }
 
 /* Special styling for WebKit/Blink */
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    border: 1px solid #F21259;
+    border: 1px solid #B7B7B7;
     height: 15px;
     width: 15px;
     border-radius: 100%;
-    background: #F21259;
+    background: #ffffff;
     cursor: pointer;
 }
 
 /* All the same stuff for Firefox */
 input[type=range]::-moz-range-thumb {
-    border: 1px solid #F21259;
+    border: 1px solid #B7B7B7;
     height: 15px;
     width: 15px;
     border-radius: 100%;
-    background: #F21259;
+    background: #ffffff;
     cursor: pointer;
 }
 
 /* All the same stuff for IE */
 input[type=range]::-ms-thumb {
-    border: 1px solid #F21259;
+    border: 1px solid #B7B7B7;
     height: 15px;
     width: 15px;
     border-radius: 100%;
-    background: #F21259;
+    background: #ffffff;
     cursor: pointer;
 }

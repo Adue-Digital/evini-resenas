@@ -12,15 +12,20 @@
         <input type="hidden" name="nonce" value="<?php echo wp_create_nonce( 'my-ajax-nonce' ); ?>">
         <div class="paginator"></div>
         <div id="order-review-stepper">
-            <?php foreach ($products as $product) : ?>
+            <?php foreach ($products as $id => $product) : ?>
 
             <header>
             </header>
 
             <section class="product-step">
-                <?php echo $product->get_product()->get_image( 'woocommerce_thumbnail' ); ?>
-
-                <p><?php echo $product->get_name(); ?></p>
+                <a href="<?php echo $product->get_product()->get_permalink(); ?>" target="_blank">
+                    <?php echo $product->get_product()->get_image( 'woocommerce_thumbnail' ); ?>
+                </a>
+                <p>
+                    <a href="<?php echo $product->get_product()->get_permalink(); ?>" target="_blank">
+                        <?php echo $product->get_name(); ?>
+                    </a>
+                </p>
                 <?php
                     $usercomment = get_comments( array (
                         'user_id' => $current_user->ID,
@@ -38,21 +43,28 @@
                     <?php else : ?>
 
                         <p><strong>¿Qué te pareció el vino?</strong></p>
+
                         <div class="rating-container">
                             <input id="custom-rating-<?php echo $product->get_product()->get_id(); ?>" class="product-rating" name="rating-<?php echo $product->get_product()->get_id(); ?>" type="hidden" value="0">
                             <div class="my-rating-8" data-id="<?php echo $product->get_product()->get_id(); ?>"></div>
+                            <p>
+                                <span style="float: left;">Malo</span>
+                                <span style="float: right;">Excelente</span>
+                            </p>
                             <a href="#" class="remove-rating" style="display: none;" data-id="<?php echo $product->get_product()->get_id(); ?>">Eliminar voto</a>
                         </div>
 
-                        <p><strong>¿Qué sabores encontraste?</strong></p>
+                        <div class="clear">
+                            <p><strong>¿Qué sabores encontraste?</strong></p>
+                        </div>
 
                         <?php foreach ($metas as $key => $meta) : ?>
                             <div class="row form-group wine-attribute-container">
                                 <div class="col-12">
-                                    <label for="rating"><?php echo $meta; ?><span class="required">*</span></label>
+                                    <label for="rating" class="range-label"><?php echo $meta; ?><span class="required">*</span></label>
                                     <div class="range-container">
                                         <input type="range" min="0" max="100" value="0" class="resena-slider" id="resena-<?php echo $key; ?>-<?php echo $product->get_product()->get_id(); ?>" name="<?php echo $key; ?>-<?php echo $product->get_product()->get_id(); ?>" oninput="onChangeSlider(this)" onload="onChangeSlider(this)">
-                                        <output class="resena-value">0%</output>
+                                        <output class="resena-value">0 %</output>
                                     </div>
                                 </div>
                             </div>
